@@ -17,11 +17,8 @@ namespace ProblemaComOrientacaoObj {
             y.B = double.Parse(Console.ReadLine());
             y.C = double.Parse(Console.ReadLine());
 
-            double p = (x.A + x.B + x.C) / 2;
-            double areaX = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
-
-            p = (y.A + y.B + y.C) / 2;
-            double areaY = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
+            double areaX = x.CalculaArea();
+            double areaY = y.CalculaArea();
 
             Console.WriteLine("Área de X = {0}", areaX);
             Console.WriteLine("Área de Y = {0}", areaY);

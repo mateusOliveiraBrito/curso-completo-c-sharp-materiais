@@ -12,13 +12,13 @@ namespace Exercicio02 {
                 y = int.Parse(Console.ReadLine());
 
                 if (x > 0 && y > 0) {
-                    Console.WriteLine("primeiro");
+                    Console.WriteLine("Primeiro");
                 } else if (x < 0 && y > 0) {
-                    Console.WriteLine("segundo");
+                    Console.WriteLine("Segundo");
                 } else if (x < 0 && y < 0) {
-                    Console.WriteLine("terceiro");
+                    Console.WriteLine("Terceiro");
                 } else if (x > 0 && y < 0) {
-                    Console.WriteLine("quarto");
+                    Console.WriteLine("Quarto");
                 }
             }
         }

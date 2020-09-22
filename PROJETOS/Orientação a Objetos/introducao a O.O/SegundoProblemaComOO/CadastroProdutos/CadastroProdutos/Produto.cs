@@ -20,5 +20,9 @@ namespace CadastroProdutos {
         public void RemoverProdutos(int quantidade) {
             Quantidade -= quantidade;
         }
+
+        public override string ToString() {
+            return $"{Nome}, $ {Preco}, {Quantidade} unidades, Total: $ {ValorTotalEmEstoque()}";
+        }
     }
 }

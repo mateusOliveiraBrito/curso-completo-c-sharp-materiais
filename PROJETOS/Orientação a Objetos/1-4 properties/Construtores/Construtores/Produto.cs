@@ -3,52 +3,44 @@
 namespace CadastroProdutos {
     class Produto {
 
+        // _nome não pode ser uma auto propertie devido ao fato de ter uma implementacao particular, por isso possui
+        // uma outra implementação (manual) logo abaixo
         private string _nome;
-        private double _preco;
-        private int _quantidade;
+        public double Preco { get; private set; }
+        public int Quantidade { get; set; }
 
         public Produto() {
-            _quantidade = 0;
+            Quantidade = 0;
         }
 
-        public Produto(string nome, double preco): this() {
+        public Produto(string nome, double preco) : this() {
             _nome = nome;
-            _preco = preco;
+            Preco = preco;
         }
 
-        public Produto(string nome, double preco, int quantidade): this(nome, preco) {
-            _quantidade = quantidade;
+        public Produto(string nome, double preco, int quantidade) : this(nome, preco) {
+            Quantidade = quantidade;
         }
 
         public string Nome {
-            get { return _nome;  }
-            set { 
+            get { return _nome; }
+            set {
                 if (value != null && value.Length > 1) {
                     _nome = value;
                 }
             }
         }
 
-        public double Preco {
-            get {
-                return _preco;
-            }
-        }
-
-        public int Quantidade {
-            get { return _quantidade;  }
-        }
-
         public double ValorTotalEmEstoque() {
-            return _quantidade * _preco;
+            return Quantidade * Preco;
         }
 
         public void AdicionarProdutos(int quantidade) {
-            _quantidade += quantidade;
+            Quantidade += quantidade;
         }
 
         public void RemoverProdutos(int quantidade) {
-            _quantidade -= quantidade;
+            Quantidade -= quantidade;
         }
 
         public override string ToString() {

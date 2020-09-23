@@ -21,7 +21,7 @@ namespace ContaBancaria {
         }
 
         public Conta(int numero, string nome, double saldoInicial) : this(numero, nome) {
-            this.Saldo = saldoInicial;
+            Deposito(saldoInicial);
         }
 
         public void Deposito(double valor) {

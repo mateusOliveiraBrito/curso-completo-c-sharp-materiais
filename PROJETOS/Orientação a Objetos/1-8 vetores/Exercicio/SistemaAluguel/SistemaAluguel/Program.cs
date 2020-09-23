@@ -3,7 +3,6 @@
 namespace SistemaAluguel {
     class Program {
         static void Main(string[] args) {
-
             Aluguel[] alugueis = Adiciona(LeituraInicial());
             ListaAlugueis(alugueis);
         }

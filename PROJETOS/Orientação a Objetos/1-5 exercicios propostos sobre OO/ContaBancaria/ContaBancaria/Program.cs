@@ -8,7 +8,7 @@ namespace ContaBancaria {
             string titular;
             char opcao;
             double valor;
-            Conta conta = null;
+            Conta conta;
 
             Console.Write("Entre com o número da conta: ");
             numero = int.Parse(Console.ReadLine());
@@ -28,6 +28,7 @@ namespace ContaBancaria {
                 Console.WriteLine("");
             }
             else {
+                conta = null;
                 Console.WriteLine("Opção inválida");
             }
 

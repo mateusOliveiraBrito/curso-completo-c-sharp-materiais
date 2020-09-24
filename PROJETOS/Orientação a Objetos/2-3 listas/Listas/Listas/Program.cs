@@ -5,7 +5,7 @@ namespace Listas {
     class Program {
         static void Main(string[] args) {
 
-            //declara a instancia a lista
+            //declara e instancia a lista
             List<string> list = new List<string>();
 
             //método que adiciona itens ao final da lista

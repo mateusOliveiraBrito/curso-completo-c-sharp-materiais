@@ -45,7 +45,7 @@ namespace DateTimeKindIso8601
             Console.WriteLine("dd to Local: " + dd.ToLocalTime());
             Console.WriteLine("dd to Utc: " + dd.ToUniversalTime());
             Console.WriteLine();
-            Console.WriteLine(dd.ToString("yyyy-MM-ddTHH:mm:ssZ")); // cuidado!
+            Console.WriteLine(dd.ToString("yyyy-MM-ddTHH:mm:ssZ")); // cuidado! 1° deve-se assegurar de que a data está no formato universaç, para depois fazer o ToString()
             Console.WriteLine(dd.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"));
         }
     }

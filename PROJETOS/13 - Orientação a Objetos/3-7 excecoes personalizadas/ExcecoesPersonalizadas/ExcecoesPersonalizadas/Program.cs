@@ -1,4 +1,5 @@
 ﻿using ExcecoesPersonalizadas.Entidades;
+using ExcecoesPersonalizadas.Entidades.Exceptions;
 using System;
 
 namespace ExcecoesPersonalizadas
@@ -7,20 +8,15 @@ namespace ExcecoesPersonalizadas
     {
         static void Main(string[] args)
         {
-
-            Console.Write("Número do quarto: ");
-            int numero = int.Parse(Console.ReadLine());
-            Console.Write("Check-in (DD/MM/AAAA): ");
-            DateTime checkin = DateTime.Parse(Console.ReadLine());
-            Console.Write("Check-out (DD/MM/AAAA): ");
-            DateTime checkout = DateTime.Parse(Console.ReadLine());
-
-            if (checkout <= checkin)
+            try
             {
-                Console.WriteLine("Erro na reserva: Datas cronológicamente incompatíveis!");
-            }
-            else
-            {
+                Console.Write("Número do quarto: ");
+                int numero = int.Parse(Console.ReadLine());
+                Console.Write("Check-in (DD/MM/AAAA): ");
+                DateTime checkin = DateTime.Parse(Console.ReadLine());
+                Console.Write("Check-out (DD/MM/AAAA): ");
+                DateTime checkout = DateTime.Parse(Console.ReadLine());
+
                 Reserva reserva = new Reserva(numero, checkin, checkout);
                 Console.WriteLine($"Reserva: {reserva}");
 
@@ -31,22 +27,19 @@ namespace ExcecoesPersonalizadas
                 checkin = DateTime.Parse(Console.ReadLine());
                 Console.Write("Check-out (DD/MM/AAAA): ");
                 checkout = DateTime.Parse(Console.ReadLine());
-
-                DateTime agora = DateTime.Now;
-
-                if (checkin < agora || checkout < agora)
-                {
-                    Console.WriteLine("Erro na reserva: data para atualização de reserva, devem ser datas futuras!");
-                }
-                else if (checkout <= checkin)
-                {
-                    Console.WriteLine("Erro na reserva: Datas cronológicamente incompatíveis!");
-                }
-                else
-                {
-                    reserva.UpdateDates(checkin, checkout);
-                    Console.WriteLine($"Reserva: {reserva}");
-                }
+                Console.WriteLine($"Reserva: {reserva}");
+            }
+            catch (DominioException ex)
+            {
+                Console.WriteLine("Erro na reserva: " + ex.Message);
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine("Erro na inserção de dados: " + e.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Erro inesperado: " + ex.Message);
             }
         }
     }

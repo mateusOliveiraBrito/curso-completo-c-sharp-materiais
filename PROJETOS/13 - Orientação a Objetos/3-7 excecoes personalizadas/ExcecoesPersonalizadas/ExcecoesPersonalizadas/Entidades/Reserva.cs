@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExcecoesPersonalizadas.Entidades.Exceptions;
+using System;
 
 namespace ExcecoesPersonalizadas.Entidades
 {
@@ -12,6 +13,12 @@ namespace ExcecoesPersonalizadas.Entidades
 
         public Reserva(int numeroQuarto, DateTime checkin, DateTime checkout)
         {
+
+            if (checkout <= checkin)
+            {
+                throw new Exception("Erro na reserva: Datas cronológicamente incompatíveis!");
+            }
+
             NumeroQuarto = numeroQuarto;
             Checkin = checkin;
             Checkout = checkout;
@@ -25,6 +32,18 @@ namespace ExcecoesPersonalizadas.Entidades
 
         public void UpdateDates(DateTime checkin, DateTime checkout)
         {
+
+            DateTime agora = DateTime.Now;
+
+            if (checkin < agora || checkout < agora)
+            {
+                throw new DominioException("Erro na reserva: data para atualização de reserva, devem ser datas futuras!");
+            }
+            if (checkout <= checkin)
+            {
+                throw new Exception("Erro na reserva: Datas cronológicamente incompatíveis!");
+            }
+
             Checkin = checkin;
             Checkout = checkout;
         }

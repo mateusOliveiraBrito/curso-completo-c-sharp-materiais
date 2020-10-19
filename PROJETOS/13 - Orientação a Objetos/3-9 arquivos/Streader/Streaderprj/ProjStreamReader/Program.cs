@@ -10,16 +10,18 @@ namespace ProjStreamReader
         {
             string path = @"c:\temp\file1.txt";
 
-            FileStream fs = null;
             StreamReader sr = null;
 
             try
             {
-                fs = new FileStream(path, FileMode.Open);
-                sr = new StreamReader(fs);
+                sr = File.OpenText(path);
 
-                string linha = sr.ReadLine();
-                Console.WriteLine(linha);
+                while (!sr.EndOfStream)
+                {
+                    string linha = sr.ReadLine();
+                    Console.WriteLine(linha);
+                }
+
             }
             catch (IOException e)
             {
@@ -29,9 +31,6 @@ namespace ProjStreamReader
             {
                 if (sr != null)
                     sr.Close();
-
-                if (fs != null)
-                    fs.Close();
             }
         }
     }

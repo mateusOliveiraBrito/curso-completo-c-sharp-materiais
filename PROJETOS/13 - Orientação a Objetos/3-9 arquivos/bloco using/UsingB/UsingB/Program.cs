@@ -15,15 +15,12 @@ namespace UsingB
             */
             try
             {
-                using (FileStream fs = new FileStream(path, FileMode.Open))
+                using (StreamReader sr = File.OpenText(path))
                 {
-                    using (StreamReader sr = new StreamReader(fs))
+                    while (!sr.EndOfStream)
                     {
-                        while (!sr.EndOfStream)
-                        {
-                            string linha = sr.ReadLine();
-                            Console.WriteLine(linha);
-                        }
+                        string linha = sr.ReadLine();
+                        Console.WriteLine(linha);
                     }
                 }
             }

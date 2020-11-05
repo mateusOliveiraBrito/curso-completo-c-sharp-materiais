@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ListagemNumerica.Contratos
+﻿namespace ListagemNumerica.Contratos
 {
     interface IImpressaoServico
     {
-        void AddNumero(int n);
-        int Primeiro();
+        void AddObjeto(object n);
+        object Primeiro();
         void Imprime();
     }
 }

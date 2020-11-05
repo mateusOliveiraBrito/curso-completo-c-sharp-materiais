@@ -6,22 +6,22 @@ namespace ListagemNumerica.Servicos
 {
     class ImpressaoServico : IImpressaoServico
     {
-        List<int> numeros = new List<int>();
+        List<object> Objetos = new List<object>();
 
-        public void AddNumero(int n)
+        public void AddObjeto(object n)
         {
-            numeros.Add(n);
+            Objetos.Add(n);
         }
 
         public void Imprime()
         {
             int posicao = 0;
             string saida = "[";
-            foreach (int item in numeros)
+            foreach (var item in Objetos)
             {
                 saida += item;
 
-                if (posicao != numeros.Count - 1)
+                if (posicao != Objetos.Count - 1)
                 {
                     saida += ", ";
                 }
@@ -34,9 +34,9 @@ namespace ListagemNumerica.Servicos
             Console.WriteLine(saida);
         }
 
-        public int Primeiro()
+        public object Primeiro()
         {
-            return numeros[0];
+            return Objetos[0];
         }
     }
 }

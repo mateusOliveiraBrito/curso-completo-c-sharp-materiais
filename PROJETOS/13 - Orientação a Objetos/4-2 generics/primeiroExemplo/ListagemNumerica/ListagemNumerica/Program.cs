@@ -1,7 +1,6 @@
 ﻿using ListagemNumerica.Contratos;
 using ListagemNumerica.Servicos;
 using System;
-using System.Collections.Generic;
 
 namespace ListagemNumerica
 {
@@ -18,7 +17,7 @@ namespace ListagemNumerica
             {
                 for (int i = 0; i < n; i++)
                 {
-                    _impressaoServico.AddNumero(int.Parse(Console.ReadLine()));
+                    _impressaoServico.AddObjeto(Console.ReadLine());
                 }
 
                 _impressaoServico.Imprime();

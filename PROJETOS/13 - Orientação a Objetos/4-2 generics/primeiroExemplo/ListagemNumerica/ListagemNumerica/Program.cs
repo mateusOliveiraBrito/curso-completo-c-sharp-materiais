@@ -8,7 +8,7 @@ namespace ListagemNumerica
     {
         static void Main(string[] args)
         {
-            IImpressaoServico _impressaoServico = new ImpressaoServico();
+            ImpressaoServico<string> _impressaoServico = new ImpressaoServico<string>();
 
             Console.Write("Informe quantos números serão lidos: ");
             int n = int.Parse(Console.ReadLine());

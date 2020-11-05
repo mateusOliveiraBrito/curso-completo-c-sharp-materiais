@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace ListagemNumerica.Servicos
 {
-    class ImpressaoServico : IImpressaoServico
+    class ImpressaoServico<T> : IImpressaoServico
     {
-        List<object> Objetos = new List<object>();
+        List<T> Objetos = new List<T>();
 
-        public void AddObjeto(object n)
+        public void AddObjeto(T n)
         {
             Objetos.Add(n);
         }
@@ -34,7 +34,7 @@ namespace ListagemNumerica.Servicos
             Console.WriteLine(saida);
         }
 
-        public object Primeiro()
+        public T Primeiro()
         {
             return Objetos[0];
         }

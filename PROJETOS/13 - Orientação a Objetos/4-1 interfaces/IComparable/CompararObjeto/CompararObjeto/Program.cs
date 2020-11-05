@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompararObjeto.Entidades;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -13,15 +14,17 @@ namespace CompararObjeto
             {
                 using (StreamReader sr = File.OpenText(path))
                 {
-                    List<string> list = new List<string>();
+                    List<Funcionario> list = new List<Funcionario>();
                     while (!sr.EndOfStream)
                     {
-                        list.Add(sr.ReadLine());
+                        list.Add(new Funcionario(sr.ReadLine()));
                     }
+                    //o método sort faz uso da interface IComparable, assim sendo, o objeto da lista que ele irá ordenar,
+                    //deve conter a implementação da interface IComparable
                     list.Sort();
-                    foreach (string str in list)
+                    foreach (var item in list)
                     {
-                        Console.WriteLine(str);
+                        Console.WriteLine(item);
                     }
                 }
             }

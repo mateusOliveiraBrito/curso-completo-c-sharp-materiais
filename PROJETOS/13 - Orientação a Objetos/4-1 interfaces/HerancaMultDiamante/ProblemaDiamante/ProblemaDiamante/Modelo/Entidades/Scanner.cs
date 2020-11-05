@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ProblemaDiamante.Modelo.Contratos;
+using System;
 
 namespace ProblemaDiamante.Modelo.Entidades
 {
-    class Scanner : Dispositivo
+    class Scanner : Dispositivo, IScanner
     {
         public override void ProcessamentoDoc(string documento)
         {

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ProblemaDiamante.Modelo.Contratos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ProblemaDiamante.Modelo.Entidades
 {
-    class Impressora : Dispositivo
+    class Impressora : Dispositivo, IImpressora
     {
         public override void ProcessamentoDoc(string documento)
         {

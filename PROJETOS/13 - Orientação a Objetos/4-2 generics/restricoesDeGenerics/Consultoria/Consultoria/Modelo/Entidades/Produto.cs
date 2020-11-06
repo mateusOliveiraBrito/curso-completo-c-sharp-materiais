@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Consultoria.Modelo.Entidades
 {
@@ -26,7 +27,7 @@ namespace Consultoria.Modelo.Entidades
 
         public override string ToString()
         {
-            return $"{Nome}, $ {Preco}";
+            return $"{Nome}, $ {Preco.ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }

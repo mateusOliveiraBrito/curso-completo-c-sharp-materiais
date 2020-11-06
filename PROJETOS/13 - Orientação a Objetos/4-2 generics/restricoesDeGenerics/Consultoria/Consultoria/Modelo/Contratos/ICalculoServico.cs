@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Consultoria.Modelo.Contratos
 {
-    class ICalculoServico
+    interface ICalculoServico
     {
+        T MaiorSalario<T>(List<T> lista) where T : IComparable;
     }
 }
